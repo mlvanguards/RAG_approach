@@ -84,11 +84,11 @@ question = st.text_input("Ask a medical question:")
 def search_top_k_chunks(query, k=5):
     ensure_collection()
     q_emb = embedder.encode([query]).tolist()[0]
-    qdrant_results = qdrant.search(
+    qdrant_results = qdrant.query_points(
         collection_name=QDRANT_COLLECTION,
-        query_vector=q_emb,
+        query=q_emb, 
         limit=k
-    )
+    ).points
     # Each result is a ScoredPoint
     top_chunks = []
     for pt in qdrant_results:
