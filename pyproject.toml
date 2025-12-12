@@ -1,0 +1,14 @@
+[project]
+name = "medical-rag-app"
+version = "0.1.0"
+description = "A medical RAG app using Streamlit, Qdrant, and Groq LLaMA 70B"
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+    "streamlit",
+    "qdrant-client",
+    "pypdf",
+    "sentence-transformers",
+    "requests",
+    "groq",
+]
